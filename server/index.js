@@ -1,15 +1,19 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+require('dotenv').config() // Secures variables
+const app = require('./utils/app') // Backend App (server)
+const mongo = require('./utils/mongo') // MongoDB (database)
+const {PORT} = require('./constants')
+const authRoutes = require('./routes/auth')
 
-const app = express();
+async function bootstrap() {
+  await mongo.connect()
 
-mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost:27017/nolatech-fullstack-test`);
+  app.get('/', (req, res) => res.status(200).json({message: 'Hello World!'}))
+  app.get('/healthz', (req, res) => res.status(200).send())
+  app.use('/api/auth', authRoutes)
 
-app.use(bodyParser.json());
+  app.listen(PORT, () => {
+    console.log(`✅ Server is listening on port: ${PORT}`)
+  })
+}
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`app running on port ${PORT}`)
-});
+bootstrap()
