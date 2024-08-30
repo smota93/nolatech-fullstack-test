@@ -20,8 +20,8 @@ const instance = new mongoose.Schema(
     role: {
       type: String,
       required: true,
-      enum: ['user', 'admin'],
-      default: 'user',
+      enum: ['admin', 'manager', 'employee'],
+      default: 'employee',
     },
   },
   {
