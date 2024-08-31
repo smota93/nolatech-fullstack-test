@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  appapidebug:
+    image: app
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: development
+    ports:
+      - 5500:5500
+      - 9229:9229
+    command: ["node", "--inspect=0.0.0.0:9229", "index.js"]
+    links: 
+      - mongo
+    volumes: 
+      - .:/usr/src/app
+
+  mongo:
+    image: mongo:4.4.8
+    ports: 
+      - "27017:27017"
+    logging: 
+      driver: none

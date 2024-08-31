@@ -1,0 +1,32 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run docker-compose up",
+			"type": "docker-compose",
+			"dockerCompose": {
+				"envFile": "${workspaceFolder}/.env",
+				"up": {
+					"detached": true,
+					"build": true,
+					"services": [
+						"tesisapidebug"
+					]
+				},
+				"files": [
+					"${workspaceFolder}/docker-compose.yml",
+					"${workspaceFolder}/docker-compose.debug.yml"
+				]				
+			}
+		},
+		{
+			"label": "Run docker-compose down",
+			"type": "docker-compose",
+			"dockerCompose": {
+				"down": {
+					"removeImages": "local",
+				}
+			}
+		}
+	]
+}
