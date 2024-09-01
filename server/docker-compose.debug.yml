@@ -1,7 +1,5 @@
-version: '3.4'
-
 services:
-  appapidebug:
+  appApiDebug:
     image: app
     build:
       context: .
@@ -9,17 +7,17 @@ services:
     environment:
       NODE_ENV: development
     ports:
-      - 5500:5500
+      - 9000:9000
       - 9229:9229
-    command: ["node", "--inspect=0.0.0.0:9229", "index.js"]
-    links: 
+    command: ['node', '--inspect=0.0.0.0:9229', 'index.js']
+    links:
       - mongo
-    volumes: 
+    volumes:
       - .:/usr/src/app
 
   mongo:
     image: mongo:4.4.8
-    ports: 
-      - "27017:27017"
-    logging: 
+    ports:
+      - '27017:27017'
+    logging:
       driver: none

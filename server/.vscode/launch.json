@@ -1,12 +1,12 @@
 {
-    "configurations": [
-      {
-        "name": "Docker Node.js Launch",
-        "type": "docker",
-        "request": "launch",
-        "preLaunchTask": "Run docker-compose up",
-        "platform": "node",
-        "removeContainerAfterDebug": true
-      }
-    ]
-  }
+  "configurations": [
+    {
+      "name": "Docker Node.js Launch",
+      "type": "docker",
+      "request": "launch",
+      "preLaunchTask": "Run docker-compose up",
+      "platform": "node",
+      "removeContainerAfterDebug": true
+    }
+  ]
+}
