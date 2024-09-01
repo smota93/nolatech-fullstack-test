@@ -2,25 +2,18 @@ const mongoose = require('mongoose')
 
 const instance = new mongoose.Schema(
   {
-    username: {
+    title: {
       type: String,
       required: true,
-      lowercase: true,
       unique: true
     },
-    password: {
-      type: String,
+    questions: {
+      type: Array,
       required: true
     },
-    role: {
-      type: String,
-      required: true,
-      enum: ['admin', 'manager', 'employee'],
-      default: 'employee'
-    },
-    evaluations: {
+    answers: {
       type: Array,
-      default: []
+      required: true
     }
   },
   {
@@ -28,6 +21,6 @@ const instance = new mongoose.Schema(
   }
 )
 
-const modelName = 'Account'
+const modelName = 'Evaluation'
 
 module.exports = mongoose.model(modelName, instance)
