@@ -1,3 +1,8 @@
+const dotenv = require('dotenv')
+dotenv.config({
+  path:'../.env'
+})
+
 const ORIGIN = '*'
 const PORT = process.env.PORT || 8080
 
