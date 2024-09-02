@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from "react-toastify";
 import axios from "axios";
 
 const baseURL = "http://localhost:9000/api"
@@ -13,10 +14,10 @@ export const register = createAsyncThunk("register", async ({ username, password
     }
   )
   .then((res) => {
-    console.log(res.data)
+    toast.success(res.data.message)
   })
   .catch((err) => {
-    console.log(err.response)
+    toast.error(err.response.data.message)
   });
 })
 
