@@ -1,14 +1,25 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import Counter from './components/Counter'
-import './App.css'
+import {
+  Routes,
+  Route,
+} from "react-router-dom";
+import SignIn from './components/SignIn'
+import SignUp from './components/SignUp'
 
 function App() {
   return (
     <>
-      <div className="card">
-        <Counter />
-      </div>
+     <Routes>
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        {/* <Route
+          path="/protected"
+          element={
+            <RequireAuth>
+              <ProtectedPage />
+            </RequireAuth>
+          }
+        /> */}
+      </Routes>
     </>
   )
 }
