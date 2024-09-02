@@ -10,9 +10,11 @@
 # Estructura
 - Se uso una estructura tradicional para proyecto con el stack MERN con una carpeta para el cliente (frontend) y otra para el server (backend)
 - Se simplifico un poco para evitar complejidades innecesarias para el tamaño del proyecto
-- Server:
+
+# Server:
 ![image](https://github.com/user-attachments/assets/92eb8ed1-8123-4ef7-91b5-996c346bf998)
-- Cliente:
+
+# Cliente:
 ![image](https://github.com/user-attachments/assets/3cc38a52-b460-4c15-9763-268dc21f5f0c)
 
 # Diseño
